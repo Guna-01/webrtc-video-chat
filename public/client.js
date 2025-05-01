@@ -1,5 +1,5 @@
-// Initialize Socket.IO connection
-const socket = io();
+// Initialize Socket.IO connection to the Vercel backend
+const socket = io("https://webrtc-video-chat-app.vercel.app/");
 let localStream;
 let peerConnections = {};
 let roomId;
@@ -222,7 +222,7 @@ socket.on('video-state', ({ userId, userName, enabled }) => {
 });
 
 // Update audio state for remote users
-socket.on('audio-state', ({ userId,再enabled }) => {
+socket.on('audio-state', ({ userId, enabled }) => {
   toggleMicIcon(userId, enabled);
 });
 
