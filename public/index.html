@@ -10,6 +10,15 @@
   <script src="/socket.io/socket.io.js"></script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    .flip-icon:hover {
+      animation: flip 0.5s ease-in-out;
+    }
+    @keyframes flip {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body class="bg-gray-100 flex flex-col h-screen">
   <!-- Main heading of the application -->
@@ -35,7 +44,9 @@
     <div class="bg-gray-200 p-4 flex justify-center space-x-4">
       <button id="video-toggle" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Video On</button>
       <button id="audio-toggle" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"><i class="fas fa-microphone"></i> Audio On</button>
-      <button id="switch-camera" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"><i class="fas fa-camera"></i> Switch Camera</button>
+      <button id="switch-camera" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600" title="Flip Camera">
+        <i class="fas fa-sync-alt flip-icon"></i> Flip Camera
+      </button>
       <button id="add-participant" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Participant</button>
       <button id="leave-call" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Leave Call</button>
     </div>

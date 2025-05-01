@@ -37,6 +37,11 @@ async function getVideoDevices() {
   const devices = await navigator.mediaDevices.enumerateDevices();
   videoDevices = devices.filter(device => device.kind === 'videoinput');
   console.log('Available video devices:', videoDevices);
+  if (videoDevices.length <= 1) {
+    switchCameraBtn.disabled = true;
+    switchCameraBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    switchCameraBtn.title = 'No other cameras available';
+  }
 }
 
 async function startMedia() {
@@ -116,6 +121,9 @@ async function switchCamera() {
 
     // Notify others to update their video state
     socket.emit('video-state', { videoEnabled: newVideoTrack.enabled, senderId: socket.id });
+
+    // Add a chat message to indicate the camera flip
+    addChatMessage('You flipped your camera', 'system');
   } catch (error) {
     console.error('Error switching camera:', error);
   }
