@@ -1,5 +1,5 @@
-// Initialize Socket.IO connection to the Vercel backend
-const socket = io("https://webrtc-video-chat-app.vercel.app/");
+// Initialize Socket.IO connection
+const socket = io();
 let localStream;
 let peerConnections = {};
 let roomId;
