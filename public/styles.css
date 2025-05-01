@@ -1,0 +1,50 @@
+/* Reset body margin and set font */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Style for video elements */
+  #videos video {
+    background: #000; /* Black background for videos */
+  }
+  
+  /* Style for chat window background */
+  #chat-window {
+    background: #f9f9f9; /* Light gray background for chat */
+  }
+  
+  /* Placeholder when video is off */
+  .name-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #374151; /* Dark gray background */
+    height: 16rem;
+    border-radius: 0.5rem;
+  }
+  
+  /* Mic icon styling on video screens */
+  .mic-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    padding: 5px;
+    border-radius: 50%;
+  }
+  
+  /* Main application heading */
+  .app-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700; /* Bold text */
+    color: #1f2937; /* Dark gray color */
+    margin: 2rem 0;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }

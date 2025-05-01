@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta tags for character encoding and responsive viewport -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC Video Chat</title>
+  <!-- External dependencies for styling and functionality -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="bg-gray-100 flex flex-col h-screen">
+  <!-- Main heading of the application -->
+  <h1 class="app-heading">REAL-TIME VIDEO CONFERENCING APPLICATION WITH WEBRTC</h1>
+  
+  <!-- Join section: Form to enter name and room ID -->
+  <div id="join-section" class="flex-1 flex items-center justify-center">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+      <h1 class="text-2xl font-bold mb-4">Join Video Chat</h1>
+      <input id="user-name" type="text" placeholder="Enter your name" class="w-full p-2 mb-4 border rounded">
+      <input id="room-id" type="text" placeholder="Enter room ID (or leave blank for new)" class="w-full p-2 mb-4 border rounded">
+      <button id="join-btn" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Join Call</button>
+    </div>
+  </div>
+  
+  <!-- Call section: Displays videos, controls, and chat -->
+  <div id="call-section" class="hidden flex-1 flex flex-col">
+    <!-- Video grid for local and remote video feeds -->
+    <div class="flex-1 p-4">
+      <div id="videos" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+    </div>
+    <!-- Control buttons for video, audio, adding participants, and leaving -->
+    <div class="bg-gray-200 p-4 flex justify-center space-x-4">
+      <button id="video-toggle" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Video On</button>
+      <button id="audio-toggle" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"><i class="fas fa-microphone"></i> Audio On</button>
+      <button id="add-participant" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add Participant</button>
+      <button id="leave-call" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Leave Call</button>
+    </div>
+    <!-- Chat window and input -->
+    <div class="bg-white p-4">
+      <div id="chat-window" class="h-40 overflow-y-auto mb-2 border p-2"></div>
+      <div class="flex">
+        <input id="chat-input" type="text" placeholder="Type a message..." class="flex-1 p-2 border rounded-l">
+        <button id="send-chat" class="bg-blue-500 text-white p-2 rounded-r hover:bg-blue-600">Send</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Client-side JavaScript for WebRTC and Socket.IO logic -->
+  <script src="client.js"></script>
+</body>
+</html>
