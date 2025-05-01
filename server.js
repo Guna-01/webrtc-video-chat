@@ -94,9 +94,10 @@ io.on('connection', (socket) => {
   });
 });
 
-// Start the server on the specified port
+// Start the server on the specified port and bind to all network interfaces
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0', () => {
   const url = `http://localhost:${PORT}`;
   console.log(`Server running at \x1b[36m\x1b[4m${url}\x1b[0m`);
+  console.log(`Accessible on local network at http://<your-local-ip>:${PORT}`);
 });

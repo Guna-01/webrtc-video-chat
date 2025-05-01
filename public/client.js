@@ -58,7 +58,10 @@ async function startMedia() {
 // Create a peer connection for WebRTC communication
 function createPeerConnection(targetId, targetName) {
   const pc = new RTCPeerConnection({
-    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }]
+    iceServers: [
+      { urls: 'stun:stun.l.google.com:19302' },
+      { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' }
+    ]
   });
 
   localStream.getTracks().forEach(track => pc.addTrack(track, localStream));
